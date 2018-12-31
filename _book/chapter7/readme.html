@@ -1,0 +1,513 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>7. Typescript 中的泛型 · Typescript 学习</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="ESnail">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="../chapter6/readme.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"ESnail","repo":"glory","type":"star","size":"small","count":true}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../chapter1/readme.html">
+            
+                <a href="../chapter1/readme.html">
+            
+                    
+                    1. Typescript 介绍、安装、编译
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../chapter2/readme.html">
+            
+                <a href="../chapter2/readme.html">
+            
+                    
+                    2. Typescript 中的数据类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../chapter3/readme.html">
+            
+                <a href="../chapter3/readme.html">
+            
+                    
+                    3. Typescript 中的函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../chapter4/readme.html">
+            
+                <a href="../chapter4/readme.html">
+            
+                    
+                    4. Es5 中的类
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../chapter5/readme.html">
+            
+                <a href="../chapter5/readme.html">
+            
+                    
+                    5. Typescript 中的类
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../chapter6/readme.html">
+            
+                <a href="../chapter6/readme.html">
+            
+                    
+                    6. Typescript 中的接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter active" data-level="7.1" data-path="readme.html">
+            
+                <a href="readme.html">
+            
+                    
+                    7. Typescript 中的泛型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >7. Typescript 中的泛型</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#typescript-&#x4E2D;&#x7684;&#x6CDB;&#x578B;"><b></b>Typescript &#x4E2D;&#x7684;&#x6CDB;&#x578B;</a></li><ul><li><span class="title-icon "></span><a href="#&#x6CDB;&#x578B;&#x7684;&#x5B9A;&#x4E49;"><b></b>&#x6CDB;&#x578B;&#x7684;&#x5B9A;&#x4E49;</a></li><li><span class="title-icon "></span><a href="#&#x6CDB;&#x578B;&#x51FD;&#x6570;"><b></b>&#x6CDB;&#x578B;&#x51FD;&#x6570;</a></li><li><span class="title-icon "></span><a href="#&#x6CDB;&#x578B;&#x7C7B;"><b></b>&#x6CDB;&#x578B;&#x7C7B;</a></li><li><span class="title-icon "></span><a href="#&#x6CDB;&#x578B;&#x63A5;&#x53E3;"><b></b>&#x6CDB;&#x578B;&#x63A5;&#x53E3;</a></li></ul></ul></div><a href="#typescript-&#x4E2D;&#x7684;&#x6CDB;&#x578B;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="typescript-&#x4E2D;&#x7684;&#x6CDB;&#x578B;"><a name="typescript-&#x4E2D;&#x7684;&#x6CDB;&#x578B;" class="anchor-navigation-ex-anchor" href="#typescript-&#x4E2D;&#x7684;&#x6CDB;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>Typescript &#x4E2D;&#x7684;&#x6CDB;&#x578B;</h1>
+<h2 id="&#x6CDB;&#x578B;&#x7684;&#x5B9A;&#x4E49;"><a name="&#x6CDB;&#x578B;&#x7684;&#x5B9A;&#x4E49;" class="anchor-navigation-ex-anchor" href="#&#x6CDB;&#x578B;&#x7684;&#x5B9A;&#x4E49;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6CDB;&#x578B;&#x7684;&#x5B9A;&#x4E49;</h2>
+<p>&#x6CDB;&#x578B;&#xFF1A;&#x8F6F;&#x4EF6;&#x5DE5;&#x7A0B;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x4E0D;&#x4EC5;&#x8981;&#x521B;&#x5EFA;&#x4E00;&#x81F4;&#x7684;&#x5B9A;&#x4E49;&#x826F;&#x597D;&#x7684; API&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x8981;&#x8003;&#x8651;&#x53EF;&#x91CD;&#x7528;&#x6027;&#x3002; &#x7EC4;&#x4EF6;&#x4E0D;&#x4EC5;&#x80FD;&#x591F;&#x652F;&#x6301;&#x5F53;&#x524D;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x80FD;&#x652F;&#x6301;&#x672A;&#x6765;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF0C;&#x8FD9;&#x5728;&#x521B;&#x5EFA;&#x5927;&#x578B;&#x7CFB;&#x7EDF;&#x65F6;&#x4E3A;&#x4F60;&#x63D0;&#x4F9B;&#x4E86;&#x5341;&#x5206;&#x7075;&#x6D3B;&#x7684;&#x529F;&#x80FD;&#x3002;</p>
+<p>&#x5728;&#x50CF;C#&#x548C;Java&#x8FD9;&#x6837;&#x7684;&#x8BED;&#x8A00;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x6CDB;&#x578B;&#x6765;&#x521B;&#x5EFA;&#x53EF;&#x91CD;&#x7528;&#x7684;&#x7EC4;&#x4EF6;&#xFF0C;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#x53EF;&#x4EE5;&#x652F;&#x6301;&#x591A;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x6570;&#x636E;&#x3002;&#x8FD9;&#x6837;&#x7528;&#x6237;&#x5C31;&#x53EF;&#x4EE5;&#x4EE5;&#x81EA;&#x5DF1;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x6765;&#x4F7F;&#x7528;&#x7EC4;&#x4EF6;&#x3002;</p>
+<p>&#x901A;&#x4FD7;&#x7406;&#x89E3;&#xFF1A;&#x6CDB;&#x578B;&#x5C31;&#x662F;&#x89E3;&#x51B3;<strong>&#x7C7B;</strong>&#x3001;<strong>&#x63A5;&#x53E3;</strong>&#x3001;<strong>&#x65B9;&#x6CD5;</strong>&#x7684;&#x590D;&#x7528;&#x6027;&#x3001;&#x4EE5;&#x53CA;&#x5BF9;&#x4E0D;&#x7279;&#x5B9A;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x7684;&#x652F;&#x6301;(&#x7C7B;&#x578B;&#x6821;&#x9A8C;)&#x3002;</p>
+<pre><code>function getData (val:string):string {
+  return val;
+}
+</code></pre><p>&#x53EA;&#x80FD;&#x8FD4;&#x56DE;string&#x7C7B;&#x578B;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x8981;&#x6C42;&#x80FD;&#x540C;&#x65F6;&#x8FD4;&#x56DE; string &#x7C7B;&#x578B;&#x548C; number &#x7C7B;&#x578B;</p>
+<pre><code>function getData1 (val:string):string {
+  return val;
+}
+function getData2 (val:number):number {
+  return val;
+}
+</code></pre><p>&#x4EE3;&#x7801;&#x5197;&#x4F59;&#xFF0C;any &#x7C7B;&#x578B;&#x53EF;&#x4EE5;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x3002;</p>
+<pre><code>function getData (val:any):any {
+  return val;
+}
+getData(124);
+getData(&apos;124&apos;);
+</code></pre><p>&#x4F46;&#x662F; any &#x76F8;&#x5F53;&#x4E8E;&#x653E;&#x5F03;&#x4E86;&#x7C7B;&#x578B;&#x68C0;&#x67E5;&#x3002;&#x6CA1;&#x6CD5;&#x5B9E;&#x73B0;&#x4F20;&#x5165;&#x4EC0;&#x4E48;&#xFF0C;&#x8FD4;&#x56DE;&#x4EC0;&#x4E48;&#x3002;&#x6BD4;&#x5982;:&#x4F20;&#x5165; number &#x7C7B;&#x578B;&#x5FC5;&#x987B;&#x8FD4;&#x56DE; number &#x7C7B;&#x578B;&#xFF0C;&#x4F20;&#x5165; string &#x7C7B;&#x578B;&#x5FC5;&#x987B;&#x8FD4;&#x56DE; string &#x7C7B;&#x578B;&#x3002;</p>
+<pre><code>function getData (val:any):any {
+  return val + &apos;---&apos;;
+}
+getData(124); // &#x4F20;&#x5165; number&#xFF0C;&#x8FD4;&#x56DE; string
+</code></pre><p>&#x6CDB;&#x578B;&#xFF1A;&#x53EF;&#x4EE5;&#x652F;&#x6301;&#x4E0D;&#x7279;&#x5B9A;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x3002;&#x8981;&#x6C42;&#xFF1A;&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;&#x548C;&#x8FD4;&#x56DE;&#x7684;&#x53C2;&#x6570;&#x4E00;&#x81F4;&#x3002;</p>
+<p><code>T</code>&#x8868;&#x793A;&#x6CDB;&#x578B;&#xFF0C;&#x5177;&#x4F53;&#x4EC0;&#x4E48;&#x7C7B;&#x578B;&#x662F;&#x5728;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x7684;&#x65F6;&#x5019;&#x51B3;&#x5B9A;&#x7684;</p>
+<h2 id="&#x6CDB;&#x578B;&#x51FD;&#x6570;"><a name="&#x6CDB;&#x578B;&#x51FD;&#x6570;" class="anchor-navigation-ex-anchor" href="#&#x6CDB;&#x578B;&#x51FD;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6CDB;&#x578B;&#x51FD;&#x6570;</h2>
+<pre><code>function getData&lt;T&gt; (val:T):T {
+  return val;
+}
+getData&lt;number&gt;(124);
+getData&lt;string&gt;(&apos;abc&apos;);
+// getData&lt;number&gt;(&apos;abc&apos;); // &#x9519;&#x8BEF;
+</code></pre><p>&#x653E;&#x56DE;&#x503C;&#x53EF;&#x4EE5;&#x662F;&#x4EFB;&#x610F;&#x7C7B;&#x578B;</p>
+<pre><code>function getData&lt;T&gt; (val:T):any {
+  return val + &apos;***&apos;;
+}
+getData&lt;number&gt;(124); // &#x53C2;&#x6570;&#x5FC5;&#x987B;&#x662F;&#x6570;&#x5B57;
+getData&lt;string&gt;(&apos;abc&apos;);
+</code></pre><h2 id="&#x6CDB;&#x578B;&#x7C7B;"><a name="&#x6CDB;&#x578B;&#x7C7B;" class="anchor-navigation-ex-anchor" href="#&#x6CDB;&#x578B;&#x7C7B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6CDB;&#x578B;&#x7C7B;</h2>
+<p>&#x6BD4;&#x5982;&#x6709;&#x4E2A;&#x6700;&#x5C0F;&#x5806;&#x7B97;&#x6CD5;&#xFF0C;&#x9700;&#x8981;&#x540C;&#x65F6;&#x652F;&#x6301;&#x8FD4;&#x56DE;&#x6570;&#x5B57;&#x548C;&#x5B57;&#x7B26;&#x4E32; a-z &#x4E24;&#x79CD;&#x7C7B;&#x578B;&#x3002;&#x901A;&#x8FC7;&#x7C7B;&#x7684;&#x6CDB;&#x578B;&#x6765;&#x5B9E;&#x73B0;</p>
+<pre><code>class minClass {
+  list:number[] = [];
+
+  add (val:number):void {
+    this.list.push(val);
+  }
+
+  min ():number {
+    let minNum:number = this.list[0];
+    for(let i = 0; i &lt; this.list.length; i++) {
+      if(minNum &gt; this.list[i]){
+          minNum = this.list[i];
+      }
+    }
+    return minNum;
+  }
+}
+let m = new minClass();
+m.add(3);
+m.add(2);
+m.add(23);
+console.log(m.min()); // 2
+</code></pre><p>&#x6B63;&#x5E38;&#x7684;&#x7C7B;&#x53EA;&#x80FD;&#x5B9E;&#x73B0;&#x4E00;&#x79CD;&#x7C7B;&#x578B;&#x3002;&#x7528;&#x6CDB;&#x578B;&#x89E3;&#x51B3;&#xFF0C;&#x652F;&#x6301; number &#x548C; string&#x3002;</p>
+<pre><code>class minClass&lt;T&gt; {
+  list:T[] = [];
+
+  add (val:T):void {
+    this.list.push(val);
+  }
+
+  min ():T {
+    let minNum = this.list[0];
+    for(let i = 0; i &lt; this.list.length; i++) {
+      if(minNum &gt; this.list[i]){
+          minNum = this.list[i];
+      }
+    }
+    return minNum;
+  }
+}
+let m1 = new minClass&lt;number&gt;(); // &#x5B9E;&#x4F8B;&#x5316;&#x7C7B;&#xFF0C;&#x5E76;&#x4E14;&#x6307;&#x5B9A;&#x4E86;&#x7C7B;&#x7684; T &#x4EE3;&#x8868;&#x7684;&#x7C7B;&#x578B;&#x662F; number
+m1.add(3);
+m1.add(2);
+m1.add(23);
+console.log(m1.min()); // 2
+
+let m2 = new minClass&lt;string&gt;(); // &#x5B9E;&#x4F8B;&#x5316;&#x7C7B;&#xFF0C;&#x5E76;&#x4E14;&#x6307;&#x5B9A;&#x4E86;&#x7C7B;&#x7684; T &#x4EE3;&#x8868;&#x7684;&#x7C7B;&#x578B;&#x662F; string
+m2.add(&apos;a&apos;);
+m2.add(&apos;d&apos;);
+m2.add(&apos;f&apos;);
+console.log(m2.min()); // a
+</code></pre><h2 id="&#x6CDB;&#x578B;&#x63A5;&#x53E3;"><a name="&#x6CDB;&#x578B;&#x63A5;&#x53E3;" class="anchor-navigation-ex-anchor" href="#&#x6CDB;&#x578B;&#x63A5;&#x53E3;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6CDB;&#x578B;&#x63A5;&#x53E3;</h2>
+<p>&#x51FD;&#x6570;&#x7C7B;&#x578B;&#x63A5;&#x53E3;</p>
+<pre><code>interface configFn {
+  (val1:string, val2:string):string;
+}
+let setData:configFn = function (value1:string, value2:string):string { // &#x53C2;&#x6570;&#x540D;&#x53EF;&#x4EE5;&#x548C;&#x63A5;&#x53E3;&#x4E2D;&#x7684;&#x4E0D;&#x4E00;&#x81F4;&#xFF0C;&#x4F46;&#x662F;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x5FC5;&#x987B;&#x4E00;&#x81F4;
+  return value1 + value2;
+}
+setData(&apos;1&apos;, &apos;2&apos;);
+</code></pre><p>&#x6CDB;&#x578B;&#x63A5;&#x53E3;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;1&#xFF1A;</p>
+<pre><code>interface configFn {
+  &lt;T&gt;(val:T):T;
+}
+let getData:configFn = function&lt;T&gt; (value:T):T {
+  return value;
+}
+getData&lt;string&gt;(&apos;abc&apos;);
+getData&lt;number&gt;(123);
+</code></pre><p>&#x6CDB;&#x578B;&#x63A5;&#x53E3;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;2&#xFF1A;</p>
+<pre><code>interface configFn&lt;T&gt; {
+  (val:T):T;
+}
+let getData:configFn&lt;string&gt; = function&lt;T&gt; (value:T):T {
+  return value;
+}
+getData(&apos;abc&apos;);
+getData(123); // &#x9519;&#x8BEF;
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../chapter6/readme.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 6. Typescript 中的接口">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"7. Typescript 中的泛型","level":"7.1","depth":1,"previous":{"title":"6. Typescript 中的接口","level":"6.1","depth":1,"path":"chapter6/readme.md","ref":"chapter6/readme.md","articles":[]},"dir":"ltr"},"config":{"plugins":["sharing","anchor-navigation-ex","github","github-buttons","donate","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/ESnail"},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"donate":{"alipay":"./donate.png","alipayText":" ","button":"赞赏","title":"","wechat":"","wechatText":"微信打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"github-buttons":{"buttons":[{"user":"ESnail","repo":"glory","type":"star","size":"small","count":true}]},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"ESnail","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Typescript 学习","language":"zh-hans","gitbook":"3.2.3","description":""},"file":{"path":"chapter7/readme.md","mtime":"2018-12-31T13:47:06.986Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-31T15:32:13.030Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

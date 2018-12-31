@@ -1,0 +1,44 @@
+{
+    "title": "Typescript 学习",
+    "author": "ESnail",
+    "description": "",
+    "language": "zh-hans",
+    "gitbook": "3.2.3",
+    "plugins": [
+        "sharing",
+        "anchor-navigation-ex",
+        "github",
+        "github-buttons",
+        "donate"
+    ],
+    "pluginsConfig": {
+        "sharing": {
+            "google": false,
+            "facebook": false,
+            "twitter": false,
+            "weibo": false
+        },
+        "anchor-navigation-ex": {
+            "showLevel": false
+        },
+        "github": {
+            "url": "https://github.com/ESnail"
+        },
+        "github-buttons": {
+            "buttons": [{
+                "user": "ESnail",
+                "repo": "glory",
+                "type": "star",
+                "size": "small",
+                "count": true
+                }
+            ]
+        },
+        "donate": {
+            "alipay": "./donate.png",
+            "title": "",
+            "button": "赞赏",
+            "alipayText": " "
+        }
+    }
+}
