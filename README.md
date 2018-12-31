@@ -6,3 +6,5 @@
 
 众所周知，JavaScript 是弱类型的，而这对开发人员来说，在一定程度上算是一个“痛点”。解决这个问题的两个主要库是 Typescript 和 Flow。但 Typescript 似乎更受欢迎，且越来越受到开发人员的喜爱。
 
+gitbook文档：[Typescript 学习笔记](https://esnail.github.io/ts-gitbook/book/index.html)
+
