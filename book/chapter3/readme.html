@@ -1,0 +1,522 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>3. Typescript 中的函数 · Typescript 学习</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="ESnail">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../chapter4/readme.html" />
+    
+    
+    <link rel="prev" href="../chapter2/readme.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"ESnail","repo":"glory","type":"star","size":"small","count":true}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../chapter1/readme.html">
+            
+                <a href="../chapter1/readme.html">
+            
+                    
+                    1. Typescript 介绍、安装、编译
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../chapter2/readme.html">
+            
+                <a href="../chapter2/readme.html">
+            
+                    
+                    2. Typescript 中的数据类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter active" data-level="3.1" data-path="readme.html">
+            
+                <a href="readme.html">
+            
+                    
+                    3. Typescript 中的函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../chapter4/readme.html">
+            
+                <a href="../chapter4/readme.html">
+            
+                    
+                    4. Es5 中的类
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../chapter5/readme.html">
+            
+                <a href="../chapter5/readme.html">
+            
+                    
+                    5. Typescript 中的类
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../chapter6/readme.html">
+            
+                <a href="../chapter6/readme.html">
+            
+                    
+                    6. Typescript 中的接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../chapter7/readme.html">
+            
+                <a href="../chapter7/readme.html">
+            
+                    
+                    7. Typescript 中的泛型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >3. Typescript 中的函数</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#typescript-&#x4E2D;&#x7684;&#x51FD;&#x6570;"><b></b>Typescript &#x4E2D;&#x7684;&#x51FD;&#x6570;</a></li><ul><li><span class="title-icon "></span><a href="#&#x51FD;&#x6570;&#x7684;&#x5B9A;&#x4E49;"><b></b>&#x51FD;&#x6570;&#x7684;&#x5B9A;&#x4E49;</a></li><li><span class="title-icon "></span><a href="#&#x53EF;&#x9009;&#x53C2;&#x6570;"><b></b>&#x53EF;&#x9009;&#x53C2;&#x6570;</a></li><li><span class="title-icon "></span><a href="#&#x9ED8;&#x8BA4;&#x53C2;&#x6570;"><b></b>&#x9ED8;&#x8BA4;&#x53C2;&#x6570;</a></li><li><span class="title-icon "></span><a href="#&#x5269;&#x4F59;&#x53C2;&#x6570;"><b></b>&#x5269;&#x4F59;&#x53C2;&#x6570;</a></li><li><span class="title-icon "></span><a href="#&#x51FD;&#x6570;&#x91CD;&#x8F7D;"><b></b>&#x51FD;&#x6570;&#x91CD;&#x8F7D;</a></li><li><span class="title-icon "></span><a href="#&#x7BAD;&#x5934;&#x51FD;&#x6570;"><b></b>&#x7BAD;&#x5934;&#x51FD;&#x6570;</a></li></ul></ul></div><a href="#typescript-&#x4E2D;&#x7684;&#x51FD;&#x6570;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="typescript-&#x4E2D;&#x7684;&#x51FD;&#x6570;"><a name="typescript-&#x4E2D;&#x7684;&#x51FD;&#x6570;" class="anchor-navigation-ex-anchor" href="#typescript-&#x4E2D;&#x7684;&#x51FD;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>Typescript &#x4E2D;&#x7684;&#x51FD;&#x6570;</h1>
+<h2 id="&#x51FD;&#x6570;&#x7684;&#x5B9A;&#x4E49;"><a name="&#x51FD;&#x6570;&#x7684;&#x5B9A;&#x4E49;" class="anchor-navigation-ex-anchor" href="#&#x51FD;&#x6570;&#x7684;&#x5B9A;&#x4E49;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x51FD;&#x6570;&#x7684;&#x5B9A;&#x4E49;</h2>
+<ul>
+<li>ES5 &#x51FD;&#x6570;&#x5B9A;&#x4E49;&#xFF1A;&#x51FD;&#x6570;&#x58F0;&#x660E;&#x3001;&#x533F;&#x540D;&#x51FD;&#x6570;&#x3001;&#x4F20;&#x53C2;</li>
+</ul>
+<pre><code>// &#x51FD;&#x6570;&#x58F0;&#x660E;
+function fn1 () {
+    return 123;
+}
+fn1(); // &#x8C03;&#x7528;
+
+// &#x533F;&#x540D;&#x51FD;&#x6570;
+let fn2 = function () {
+    console.log(456);
+}
+fn2();
+
+// &#x4F20;&#x53C2;
+function fn3 (name, age) {
+    return `&#x59D3;&#x540D;&#xFF1A;${name}&#xFF0C;&#x5E74;&#x9F84;&#xFF1A;${age}`;
+}
+fn3(&apos;&#x5F20;&#x4E09;&apos;, 25);
+</code></pre><ul>
+<li>ts &#x51FD;&#x6570;&#x5B9A;&#x4E49;&#xFF1A;&#x51FD;&#x6570;&#x58F0;&#x660E;&#x3001;&#x533F;&#x540D;&#x51FD;&#x6570;&#x3001;&#x4F20;&#x53C2;</li>
+</ul>
+<pre><code>// &#x51FD;&#x6570;&#x58F0;&#x660E;
+function fn1 ():number { // number &#x662F;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x503C;&#x7C7B;&#x578B;&#xFF0C;&#x6CA1;&#x6709;&#x8FD4;&#x56DE;&#x503C;&#x4E3A; void
+    return 123;
+}
+fn1();
+
+// &#x533F;&#x540D;&#x51FD;&#x6570;
+let fn2 = function ():void {
+    console.log(456);
+}
+fn2();
+
+// &#x4F20;&#x53C2;
+function fn3 (name:string, age:number):string {
+    return `&#x59D3;&#x540D;&#xFF1A;${name}&#xFF0C;&#x5E74;&#x9F84;&#xFF1A;${age}`;
+}
+fn3(&apos;&#x5F20;&#x4E09;&apos;, 25);
+</code></pre><h2 id="&#x53EF;&#x9009;&#x53C2;&#x6570;"><a name="&#x53EF;&#x9009;&#x53C2;&#x6570;" class="anchor-navigation-ex-anchor" href="#&#x53EF;&#x9009;&#x53C2;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x53EF;&#x9009;&#x53C2;&#x6570;</h2>
+<p>ES5 &#x91CC;&#x9762;&#x65B9;&#x6CD5;&#x7684;&#x5B9E;&#x53C2;&#x548C;&#x884C;&#x53C2;&#x53EF;&#x4EE5;&#x4E0D;&#x4E00;&#x6837;&#xFF0C;&#x4F46;&#x662F; ts &#x4E2D;&#x5FC5;&#x987B;&#x4E00;&#x6837;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x4E00;&#x6837;&#x5C31;&#x9700;&#x8981;&#x914D;&#x7F6E;&#x53EF;&#x9009;&#x53C2;&#x6570;&#x3002;</p>
+<p><strong>&#x6CE8;&#x610F;</strong>&#xFF1A;&#x53EF;&#x9009;&#x53C2;&#x6570;&#x5FC5;&#x987B;&#x914D;&#x7F6E;&#x5230;&#x53C2;&#x6570;&#x7684;&#x6700;&#x540E;&#x9762;</p>
+<pre><code>function getInfo (name:string, age?:number):string { // age &#x4E3A;&#x53EF;&#x9009;&#x53C2;&#x6570;
+    if (age) {
+        return `&#x59D3;&#x540D;&#xFF1A;${name}&#xFF0C;&#x5E74;&#x9F84;&#xFF1A;${age}`;
+    } else {
+        return `&#x59D3;&#x540D;&#xFF1A;${name}&#xFF0C;&#x5E74;&#x9F84;&#xFF1A;&#x4FDD;&#x5BC6;`;
+    }
+}
+console.log(getInfo(&apos;&#x5F20;&#x4E09;&apos;, 23));
+console.log(getInfo(&apos;&#x674E;&#x56DB;&apos;));
+</code></pre><pre><code>// &#x9519;&#x8BEF;&#x7684;&#x5199;&#x6CD5;
+function getInfo (name?:string, age:number):string { // name &#x4E3A;&#x53EF;&#x9009;&#x53C2;&#x6570;
+    if (name) {
+        return `&#x59D3;&#x540D;&#xFF1A;${name}&#xFF0C;&#x5E74;&#x9F84;&#xFF1A;${age}`;
+    } else {
+        return `&#x59D3;&#x540D;&#xFF1A;&#x4E0D;&#x77E5;&#x9053;&#xFF0C;&#x5E74;&#x9F84;&#xFF1A;${age}`;
+    }
+}
+console.log(getInfo(&apos;&#x674E;&#x56DB;&apos;, 23));
+</code></pre><h2 id="&#x9ED8;&#x8BA4;&#x53C2;&#x6570;"><a name="&#x9ED8;&#x8BA4;&#x53C2;&#x6570;" class="anchor-navigation-ex-anchor" href="#&#x9ED8;&#x8BA4;&#x53C2;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x9ED8;&#x8BA4;&#x53C2;&#x6570;</h2>
+<p>ES5 &#x91CC;&#x9762;&#x6CA1;&#x6CD5;&#x8BBE;&#x7F6E;&#x9ED8;&#x8BA4;&#x53C2;&#x6570;&#xFF0C;ES6 &#x548C; ts &#x4E2D;&#x90FD;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x9ED8;&#x8BA4;&#x53C2;&#x6570;&#x3002;</p>
+<pre><code>function getInfo (name:string, age:number=25):string { // age &#x9ED8;&#x8BA4;&#x4E3A;25
+    if (age) {
+        return `&#x59D3;&#x540D;&#xFF1A;${name}&#xFF0C;&#x5E74;&#x9F84;&#xFF1A;${age}`;
+    } else {
+        return `&#x59D3;&#x540D;&#xFF1A;${name}&#xFF0C;&#x5E74;&#x9F84;&#xFF1A;&#x4FDD;&#x5BC6;`;
+    }
+}
+console.log(getInfo(&apos;&#x5F20;&#x4E09;&apos;, 23)); // &#x59D3;&#x540D;&#xFF1A;&#x5F20;&#x4E09;&#xFF0C;&#x5E74;&#x9F84;&#xFF1A;23
+console.log(getInfo(&apos;&#x674E;&#x56DB;&apos;)); // &#x59D3;&#x540D;&#xFF1A;&#x674E;&#x56DB;&#xFF0C;&#x5E74;&#x9F84;&#xFF1A;25
+</code></pre><h2 id="&#x5269;&#x4F59;&#x53C2;&#x6570;"><a name="&#x5269;&#x4F59;&#x53C2;&#x6570;" class="anchor-navigation-ex-anchor" href="#&#x5269;&#x4F59;&#x53C2;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5269;&#x4F59;&#x53C2;&#x6570;</h2>
+<p>ES6 &#x4E2D;&#x7684;&#x4E09;&#x70B9;&#x8FD0;&#x7B97;&#x7B26;</p>
+<pre><code>function sum (a:number, b:number, ...nums:number[]):number {
+    let sum = a + b;
+    nums.forEach((n) =&gt; {
+        sum += n;
+    });
+    return sum;
+}
+console.log(sum(1, 2, 3, 4, 5, 6)); // 21
+</code></pre><h2 id="&#x51FD;&#x6570;&#x91CD;&#x8F7D;"><a name="&#x51FD;&#x6570;&#x91CD;&#x8F7D;" class="anchor-navigation-ex-anchor" href="#&#x51FD;&#x6570;&#x91CD;&#x8F7D;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x51FD;&#x6570;&#x91CD;&#x8F7D;</h2>
+<p>java &#x4E2D;&#x65B9;&#x6CD5;&#x7684;&#x91CD;&#x8F7D;&#xFF1A;&#x91CD;&#x8F7D;&#x6307;&#x7684;&#x662F;&#x4E24;&#x4E2A;&#x6216;&#x8005;&#x4E24;&#x4E2A;&#x4EE5;&#x4E0A;&#x540C;&#x540D;&#x51FD;&#x6570;&#xFF0C;&#x4F46;&#x5B83;&#x4EEC;&#x7684;&#x53C2;&#x6570;&#x4E0D;&#x4E00;&#x6837;&#xFF0C;&#x8FD9;&#x65F6;&#x4F1A;&#x51FA;&#x73B0;&#x51FD;&#x6570;&#x91CD;&#x8F7D;&#x7684;&#x60C5;&#x51B5;&#x3002;</p>
+<p>Typescript &#x4E2D;&#x7684;&#x91CD;&#x8F7D;&#xFF1A;&#x901A;&#x8FC7;&#x4E3A;&#x540C;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x63D0;&#x4F9B;&#x591A;&#x4E2A;&#x51FD;&#x6570;&#x7C7B;&#x578B;&#x5B9A;&#x4E49;&#x6765;&#x5B9E;&#x73B0;&#x591A;&#x79CD;&#x529F;&#x80FD;&#x7684;&#x76EE;&#x7684;&#x3002;</p>
+<p>ts &#x4E3A;&#x4E86;&#x517C;&#x5BB9; ES5 &#x4EE5;&#x53CA; ES6 &#x91CD;&#x8F7D;&#x7684;&#x5199;&#x6CD5;&#x548C; java &#x4E2D;&#x6709;&#x533A;&#x522B;&#x3002;</p>
+<p>ES5 &#x4E2D;&#x51FA;&#x73B0;&#x540C;&#x540D;&#x65B9;&#x6CD5;&#xFF0C;&#x4E0B;&#x9762;&#x7684;&#x4F1A;&#x66FF;&#x6362;&#x4E0A;&#x9762;&#x7684;&#x65B9;&#x6CD5;&#x3002;</p>
+<pre><code>function getInfo (name) {
+
+}
+function getInfo (name, age) {
+
+}
+</code></pre><p>ts &#x4E2D;&#x7684;&#x91CD;&#x8F7D;</p>
+<pre><code>// &#x5355;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x4E0D;&#x540C;&#x7C7B;&#x578B;
+function getInfo (name:string):string;
+function getInfo (age:number):string;
+function getInfo (str:any):any {
+  if (typeof str === &apos;string&apos;) {
+    return `&#x59D3;&#x540D;&#xFF1A;${str}`;
+  } else {
+    return `&#x5E74;&#x9F84;&#xFF1A;${str}`;
+  }
+}
+getInfo(&apos;&#x5F20;&#x4E09;&apos;);
+getInfo(25);
+getInfo(true); // &#x9519;&#x8BEF;&#x7684;&#x5199;&#x6CD5;
+</code></pre><pre><code>// &#x591A;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x53EF;&#x9009;&#x53C2;&#x6570;
+function getInfo (name:string):string;
+function getInfo (name:string, age:number):string;
+function getInfo (name:string, age?:number):string {
+  if (age) {
+    return `&#x59D3;&#x540D;&#xFF1A;${str}&#xFF0C;&#x5E74;&#x9F84;&#xFF1A;${str}`;
+  } else {
+    return `&#x59D3;&#x540D;&#xFF1A;${str}`;
+  }
+}
+getInfo(&apos;&#x5F20;&#x4E09;&apos;);
+getInfo(25); // &#x9519;&#x8BEF;
+getInfo(&apos;&#x674E;&#x56DB;&apos;, 26);
+</code></pre><h2 id="&#x7BAD;&#x5934;&#x51FD;&#x6570;"><a name="&#x7BAD;&#x5934;&#x51FD;&#x6570;" class="anchor-navigation-ex-anchor" href="#&#x7BAD;&#x5934;&#x51FD;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7BAD;&#x5934;&#x51FD;&#x6570;</h2>
+<p>&#x540C; ES6 &#x4E2D;&#x4E00;&#x6837;&#xFF0C;&#x4FEE;&#x590D; this &#x6307;&#x5411;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x91CC;&#x9762;&#x7684; this &#x6307;&#x5411;&#x4E0A;&#x4E0B;&#x6587;&#xFF0C;&#x5373;&#x5916;&#x5C42;&#x7B2C;&#x4E00;&#x4E2A;&#x4E0D;&#x4E3A;&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x7684; this&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../chapter2/readme.html" class="navigation navigation-prev " aria-label="Previous page: 2. Typescript 中的数据类型">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../chapter4/readme.html" class="navigation navigation-next " aria-label="Next page: 4. Es5 中的类">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"3. Typescript 中的函数","level":"3.1","depth":1,"next":{"title":"4. Es5 中的类","level":"4.1","depth":1,"path":"chapter4/readme.md","ref":"chapter4/readme.md","articles":[]},"previous":{"title":"2. Typescript 中的数据类型","level":"2.1","depth":1,"path":"chapter2/readme.md","ref":"chapter2/readme.md","articles":[]},"dir":"ltr"},"config":{"plugins":["sharing","anchor-navigation-ex","github","github-buttons","donate","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/ESnail"},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"donate":{"alipay":"./donate.png","alipayText":" ","button":"赞赏","title":"","wechat":"","wechatText":"微信打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"github-buttons":{"buttons":[{"user":"ESnail","repo":"glory","type":"star","size":"small","count":true}]},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":false,"google":false,"instapaper":false,"twitter":false,"vk":false,"weibo":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"ESnail","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Typescript 学习","language":"zh-hans","gitbook":"3.2.3","description":""},"file":{"path":"chapter3/readme.md","mtime":"2018-12-31T15:04:03.468Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-31T15:32:13.030Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
